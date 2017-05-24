@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>LABCME</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="shortcut icon" href="img/logo.png">
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="js/rs-plugin/css/settings.css">
+
+    <script type="text/javascript" src="js/modernizr.custom.32033.js"></script>
+
+    <link rel="stylesheet" href="css/eco.css">
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="fa fa-bars fa-lg"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+              <img src="img/logos.png" width="280" height="80"alt="" class="logo">
+          </a>
+        </div>
+
+        <div class="collapse navbar-collapse navbar-ex1-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="admi.html">Paciente</a></li>
+            <li><a href="cliente.html">Constancia</a></li>
+            <li><a href="resultado.html">Resultado</a></li>
+            <li><a href="expediente.html">Expediente</a></li>
+            <li><a href="#">Factura</a></li>
+          </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <a class="getApp" href="index.html">Log Out</a>
+              </li>
+            </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div id="portfolio" style="padding-top:0px; padding-bottom:0px">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 col-sm-12">
+              <div class="section-title" style="padding-bottom:0px; margin-top:30px" >
+                <div class = "strong">
+                  <strong>Facturación</strong>
+                </div>
+                <hr>
+              </div>
+              <div class="iso-section">
+                <ul class="filter-wrapper clearfix">
+                  <li><a href="#" class="tablinks" onclick="openCity(event, 'CrearFactura')"> Crear Factura</a></li>
+                  <li><a href="#" class="tablinks" onclick="openCity(event, 'EliminarFactura')">Ver Facturas</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <div id="CrearFactura" class="tabcontent">
+          <div class = "row">
+            <div class = "col-md-2 col-sm-2">
+            </div>
+            <div class="col-md-2 col-sm-2">
+              <input type="text" class="form-control" placeholder="Codigo Factura" aria-describedby="basic-addon1" name = "codigo_factura">
+            </div>
+            <div class="col-md-2 col-sm-2">
+              <input type ="text" class="form-control" placeholder="ID Paciente" aria-describedby = "basic-addon1" name = "id_paciente">
+            </div>
+            <div class="col-md-2 col-sm-2">
+              <input type ="text" class="form-control" placeholder="Nombre Paciente" aria-describedby = "basic-addon1" name = "nombre_paciente">
+            </div>
+            <div class="col-md-2 col-sm-2">
+              <input type ="date" class="form-control" placeholder="Fecha" name="fecha_factura">
+            </div>
+          </div>
+          <div class="row" style="margin-top:10px;">
+            <div class = "col-md-2 col-sm-2">
+            </div>
+          <div class = "col-md-2 col-sm-2">
+            <input type="number" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" placeholder="Subtotal" name="subtotal">
+              <!--<input type ="money" class="form-control" placeholder="Subtotal" aria-describedby = "basic-addon1" name = "subtotal">-->
+          </div>
+          <div class = "col-md-2 col-sm-2">
+            <input type="number" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" placeholder="Impuesto" name="impuesto">
+          </div>
+          <div class = "col-md-2 col-sm-2">
+            <input type="number" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" placeholder="Descuento" name="descuento">
+          </div>
+          <div class = "col-md-2 col-sm-2">
+            <input type="number" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" placeholder="Total" name="total">
+          </div>
+          </div>
+          <div class = "row" style="margin-top:10px">
+            <div class = "col-md-2 col-sm-2">
+            </div>
+            <div class = "col-md-8 col-sm-8"  style="padding-left:50px">
+              <button class="btn btn-sucess" style="width:200px" ng-click =>Aceptar</button>
+            </div>
+          </div>
+        </div>
+
+    <div id="EliminarFactura" class="tabcontent">
+      <div class = "Strong">
+        <div id="modificarFactura" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modificar Factura</h4>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <!--<div class="form-group">
+                      <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="ID Resultadp">
+                  </div>-->
+                  <div class="form-group">
+                    <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="ID Paciente">
+                  </div>
+                  <div class="form-group">
+                    <label for = "title"> Fecha Facturación: </label>
+                    <input type ="date" class="form-control" placeholder="Fecha Nacimiento" name="fecha_factura">
+                  </div>
+                  <div class="form-group">
+                      <input type="number" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" placeholder="Subtotal" name="subtotal">
+                  </div>
+                  <div class="form-group">
+                      <input type="number" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" placeholder="Impuesto" name="impuesto">
+                  </div>
+                  <div class="form-group">
+                      <input type="number" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" placeholder="Descuento" name="descuento">
+                  </div>
+                  <div class="form-group">
+                      <input type="number" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" placeholder="Total" name="total">
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Modificar Factura</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2 col-sm-2">
+                <input type="text" class="form-control" placeholder="ID Paciente" aria-describedby="basic-addon1" name = "id_searchresultado">
+            </div>
+            <div class="col-md-1 col-sm-2">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Buscar</button>
+            </div>
+        </div>
+          <hr>
+        <div ng-show="">
+            <table class="table table-striped">
+              <tr>
+                <th>
+                  Codigo Factura
+                </th>
+                <th>
+                  ID Paciente
+                </th>
+                <th>
+                  Subtotal
+                </th>
+                <th>
+                  Impuesto
+                </th>
+                <th>
+                  Descuento
+                </th>
+                <th>
+                  Total
+                </th>
+                <th>
+                  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modificarFactura">Modificar</button>
+                </th>
+              </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script>
+        function openCity(evt, cityName) {
+          var i, tabcontent, tablinks;
+
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+              tabcontent[i].style.display = "none";
+          }
+
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+              tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(cityName).style.display = "block";
+          evt.currentTarget.className += " active";
+        }
+    </script>
+    <script src="jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/js/modal.js"></script>
+
+  </body>
+</html>
