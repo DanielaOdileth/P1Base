@@ -1,0 +1,1 @@
+var lab = require('../schemas/laboratory');
