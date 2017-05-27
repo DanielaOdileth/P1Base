@@ -69,11 +69,37 @@
             </div>
           </div>
 
-        
-      </div>
-
       <div  id="lab1" class="tabcontent">
-          <table border id = "tablaLab1" align = "center">
+        <div ng-show="isAdmin()">
+          <table class="table table-striped">
+            <tr>
+              <th>
+                Nombre
+              </th>
+              <th>
+                Organización
+              </th>
+              <th>
+                Proposito
+              </th>
+              <th>
+                Fecha
+              </th>
+              <th>
+                Hora
+              </th>
+            </tr>
+            <!--<tr ng-repeat="student in students">
+              <td>
+                {{student.account}}
+              </td>
+              <td>
+                {{student.name}}
+              </td>
+            </tr>-->
+          </table>
+        </div>
+          <!--<table border id = "tablaLab1" align = "center">
           <tr>
             <td>Hora</td>
             <td>Lunes</td>
@@ -162,37 +188,60 @@
             <td id = "10,4"></td>
             <td id = "10,5"></td>
           </tr>
-          </table>  
+        </table>-->
+
           <hr size = 2 width = 80%/>
           <p align = "center">
             <button type="button" class="btn btn-primary btn-lg" onclick="openModal(event,'Modal1')">Hacer Reservacion</button>
           </p>
       </div>
+  </div>
 
       <div id="Modal1" class="modal fade" role="dialog">
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header">              
+            <div class="modal-header">
               <h4 class="modal-title">Reservaciones Laboratorio 1</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
               <form role = "form">
                 <div class = form-group>
                   <div>
-                    <label>Nombre</label>  
+                    <label>Nombre</label>
                     <input type="text" class="form-control" id="nombre"
                     placeholder="Nombre" ng-model = "reservation.name">
                   </div>
                   <div>
                     <label>Organizacion</label>
                     <input type="text" class="form-control" id="organization"
-                    placeholder="Organizacion" ng-model = "reservation.organization">  
+                    placeholder="Organizacion" ng-model = "reservation.organization">
                   </div>
                   <div>
                     <label>Proposito</label>
                     <input type="text" class="form-control" id="purpose"
-                    placeholder="Proposito" ng-model = "reservation.purpose">  
-                  </div>  
+                    placeholder="Proposito" ng-model = "reservation.purpose">
+                  </div>
+                </div>
+                <div class='col-md-5'>
+                    <div class="form-group">
+                        <div class='input-group date' id='datetimepicker6'>
+                            <input type='text' class="form-control" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-md-5'>
+                    <div class="form-group">
+                        <div class='input-group date' id='datetimepicker7'>
+                            <input type='text' class="form-control" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
                 </div>
               </form>
             </div>
@@ -229,6 +278,22 @@
       evt.currentTarget.className += " active";
     }
 </script>
+
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker6').datetimepicker();
+        $('#datetimepicker7').datetimepicker({
+            useCurrent: false //Important! See issue #1075
+        });
+        $("#datetimepicker6").on("dp.change", function (e) {
+            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker7").on("dp.change", function (e) {
+            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+        });
+    });
+</script>
+
 <script src="jquery/dist/jquery.js"></script>
 <script src="bootstrap/js/modal.js"></script>
  <script src="app.js"></script>
@@ -236,4 +301,3 @@
   <script src="scripts/controllers/loginController.js"></script>
   <script src="scripts/services/authService.js"></script>
   <script src="scripts/services/homeService.js"></script>
-
