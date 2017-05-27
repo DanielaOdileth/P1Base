@@ -1,6 +1,6 @@
 <head>
     <meta charset="UTF-8">
-    <title>LABCME</title>
+    <title>Reserva de Laboratorio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <link rel="shortcut icon" href="img/logo.png">
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/eco.css">
 
 </head>
-
+<body ng-app = "AngularScaffold">
 <div ng-controller="HomeController" >
     <!--<div class="row">
         <input type="button" ng-click="getStudents()" value="Fetch Students!" ng-show="isRegular() || isAdmin()">
@@ -49,7 +49,7 @@
           </td>
         </tr>
       </table>-->
-      <div id="portfolio" style="padding-top:0px; padding-bottom:0px" ng-show = "isAdmin()">
+    <div id="portfolio" style="padding-top:0px; padding-bottom:0px" ng-show = "isAdmin()">
           <div class="container">
             <div class="row">
               <div class="col-md-12 col-sm-12">
@@ -69,66 +69,149 @@
             </div>
           </div>
 
-        <div  id="lab1" class="tabcontent">
-          <div class = "row">
-            <div class = "col-md-2 col-sm-2">
-            </div>
-            <div class="col-md-4 col-sm-4">
-              <input type="text" class="form-control" placeholder="Nombres" name = "nombre" ng-model = "paciente.nombre">
-            </div>
-            <div class="col-md-4 col-sm-4">
-              <input type ="text" class="form-control" placeholder="Apellidos" aria-describedby = "basic-addon1" name = "apellido" ng-model = "paciente.apellido">
-            </div>
-          </div>
-          <div class="row" style="margin-top:10px;">
-            <div class = "col-md-2 col-sm-2">
-            </div>
-          <div class = "col-md-2 col-sm-2">
-            <input type ="text" class="form-control" placeholder="ID"  name = "id" ng-model = "paciente.id">
-          </div>
-            <div class="col-md-1 col-sm-2">
-              <p> Sexo </p>
-            </div>
-            <div class="col-sm-1">
-              <select type = "text" placeholder = "Sexo" name="sexo" ng-model = "paciente.sexo" >
-                  <option>F</option>
-                  <option>M</option>
-              </select>
-            </div>
-            <div class = "col-md-4 col-sm-4">
-              <input type ="text" class="form-control" placeholder="Dirección" name = "direccion" ng-model = "paciente.direccion">
-            </div>
-          </div>
+        
+      </div>
 
-          <div class = "row" style = "margin-top: 10px">
-            <div class = "col-md-2 col-sm-2">
+      <div  id="lab1" class="tabcontent">
+          <table border id = "tablaLab1" align = "center">
+          <tr>
+            <td>Hora</td>
+            <td>Lunes</td>
+            <td>Martes</td>
+            <td>Miercoles</td>
+            <td>Jueves</td>
+            <td>Viernes</td>
+          </tr>
+          <tr>
+            <td>7:00 a.m</td>
+            <td id = "1,1"></td>
+            <td id = "1,2"></td>
+            <td id = "1,3"></td>
+            <td id = "1,4"></td>
+            <td id = "1,5"></td>
+          </tr>
+          <tr>
+            <td>8:00 a.m</td>
+            <td id = "2,1"></td>
+            <td id = "2,2"></td>
+            <td id = "2,3"></td>
+            <td id = "2,4"></td>
+            <td id = "2,5"></td>
+          </tr>
+          <tr>
+            <td>9:00 a.m</td>
+            <td id = "3,1"></td>
+            <td id = "3,2"></td>
+            <td id = "3,3"></td>
+            <td id = "3,4"></td>
+            <td id = "3,5"></td>
+          </tr>
+          <tr>
+            <td>10:00 a.m</td>
+            <td id = "4,1"></td>
+            <td id = "4,2"></td>
+            <td id = "4,3"></td>
+            <td id = "4,4"></td>
+            <td id = "4,5"></td>
+          </tr>
+          <tr>
+            <td>11:00 a.m</td>
+            <td id = "5,1"></td>
+            <td id = "5,2"></td>
+            <td id = "5,3"></td>
+            <td id = "5,4"></td>
+            <td id = "5,6"></td>
+          </tr>
+          <tr>
+            <td>12:00 m</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>1:00 p.m</td>
+            <td id = "7,1"></td>
+            <td id = "7,2"></td>
+            <td id = "7,3"></td>
+            <td id = "7,4"></td>
+            <td id = "7,5"></td>
+          </tr>
+          <tr>
+            <td>2:00 p.m</td>
+            <td id = "8,1"></td>
+            <td id = "8,2"></td>
+            <td id = "8,3"></td>
+            <td id = "8,4"></td>
+            <td id = "8,5"></td>
+          </tr>
+          <tr>
+            <td>3:00 p.m</td>
+            <td id = "9,1"></td>
+            <td id = "9,2"></td>
+            <td id = "9,3"></td>
+            <td id = "9,4"></td>
+            <td id = "9,5"></td>
+          </tr>
+          <tr>
+            <td>4:00 p.m</td>
+            <td id = "10,1"></td>
+            <td id = "10,2"></td>
+            <td id = "10,3"></td>
+            <td id = "10,4"></td>
+            <td id = "10,5"></td>
+          </tr>
+          </table>  
+          <hr size = 2 width = 80%/>
+          <p align = "center">
+            <button type="button" class="btn btn-primary btn-lg" onclick="openModal(event,'Modal1')">Hacer Reservacion</button>
+          </p>
+      </div>
+
+      <div id="Modal1" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">              
+              <h4 class="modal-title">Reservaciones Laboratorio 1</h4>
             </div>
-            <div class="col-md-1 col-sm-1">
-              <p> Fecha de Nacimiento </p>
+            <div class="modal-body">
+              <form role = "form">
+                <div class = form-group>
+                  <div>
+                    <label>Nombre</label>  
+                    <input type="text" class="form-control" id="nombre"
+                    placeholder="Nombre" ng-model = "reservation.name">
+                  </div>
+                  <div>
+                    <label>Organizacion</label>
+                    <input type="text" class="form-control" id="organization"
+                    placeholder="Organizacion" ng-model = "reservation.organization">  
+                  </div>
+                  <div>
+                    <label>Proposito</label>
+                    <input type="text" class="form-control" id="purpose"
+                    placeholder="Proposito" ng-model = "reservation.purpose">  
+                  </div>  
+                </div>
+              </form>
             </div>
-            <div class="col-md-2 col-sm-2">
-              <input type ="date" class="form-control" placeholder="Fecha Nacimiento" name="fechanacimiento" ng-model = "paciente.fechanacimiento">
-            </div>
-            <div class="col-md-2 col-sm-2">
-              <input type ="texto" class="form-control" placeholder="Correo" aria-describedby = "basic-addon1" name="correo" ng-model = "paciente.correo">
-            </div>
-            <div class="col-md-3 col-sm-3">
-                <input type ="texto" class="form-control" placeholder="Telefono" name="telefono" ng-model = "paciente.telefono">
-            </div>
-          </div>
-          <div class = "row" style="margin-top:10px">
-            <div class = "col-md-2 col-sm-2">
-            </div>
-            <div class = "col-md-8 col-sm-8"  style="padding-left:10px">
-              <button class="btn btn-sucess" style="width:200px" ng-click = "">Aceptar</button>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-default" ng-click = "addReservation1()">Hacer reservacion</button>
             </div>
           </div>
         </div>
       </div>
+
     </div>
 </div>
+</body>
 
 <script>
+    function openModal(evt,modalName){
+      $("#" + modalName).modal()
+    }
+
     function openCity(evt, cityName) {
       var i, tabcontent, tablinks;
 
@@ -148,3 +231,9 @@
 </script>
 <script src="jquery/dist/jquery.js"></script>
 <script src="bootstrap/js/modal.js"></script>
+ <script src="app.js"></script>
+  <script src="scripts/controllers/homeController.js"></script>
+  <script src="scripts/controllers/loginController.js"></script>
+  <script src="scripts/services/authService.js"></script>
+  <script src="scripts/services/homeService.js"></script>
+

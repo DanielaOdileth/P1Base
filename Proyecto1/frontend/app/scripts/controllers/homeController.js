@@ -1,19 +1,24 @@
 angular.module('AngularScaffold.Controllers')
-  .controller('HomeController', ['$scope', 'HomeService', '$sessionStorage', function ($scope, HomeService, $sessionStorage) {
-    	$scope.title = "Tabla de estudiantes de programamción 4."
-      /*$scope.exampleObject = {text: "Hola, Mundo"}*/
-      $scope.labs = [];
-      $scope.lab = {};
+  .controller('HomeController', ['HomeService', '$scope', '$rootScope', '$sessionStorage',  function ( homeService, $scope, $rootScope, $sessionStorage) {
+    	/*$scope.exampleObject = {text: "Hola, Mundo"}*/
+      $scope.reservation = {};
 
-      $scope.getLabs = function(){
-        HomeService.GetLabs().then(function(response){
-          $scope.labs = response.data;
+      $scope.addReservation1 = function(){
+        alert('Lllegue reservacion');
+        var reservation = {name : $scope.reservation.name, organization : $scope.reservation.organization,
+                          purpose : $scope.reservation.purpose, horaInicio : '11', horaFin : '12',
+                          dias : ['1', '2']};
+                          alert(reservation.name);
+        homeService.addReservation(reservation).then(function(response){
+          alert('Registered in correctly!');
         }).catch(function(err){
-          alert(err.data.error + " " + err.data.message)
+          console.log(err);
+          alert(err.data.error + " " + err.data.message);
         });
       }
 
       $scope.isAdmin = function(){
+        console.log('Aquii admin');
         return $sessionStorage.currentUser && $sessionStorage.currentUser.scope.indexOf('admin') > -1;
       }
 

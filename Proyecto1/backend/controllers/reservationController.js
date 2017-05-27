@@ -2,6 +2,7 @@ var reservation = require('../schemas/reservation');
 
 exports.createReservation = {
 	handler : function(request,reply){
+		console.log('Llegueeeeeeeee');
 		var newReservation = new reservation({
 			name : request.payload.name,
 			organization : request.payload.organization,
@@ -11,6 +12,7 @@ exports.createReservation = {
 			horaFin : request.payload.horaFin, 
 			dias : request.payload.dias 
 		});
+		console.log('Llegueeeeeeeee2');
 
 		newReservation.save(function (err) {
          console.log(err);

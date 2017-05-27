@@ -13,6 +13,7 @@ angular.module('AngularScaffold.Controllers')
       }
 
       $scope.login = function(user){
+        alert('entre');
         authService.Login(user).then(function(response){
           $sessionStorage.currentUser = response.data;
           $scope.user = {};
@@ -22,6 +23,7 @@ angular.module('AngularScaffold.Controllers')
       }
 
       $scope.register = function(){
+        alert('me registre');
         var user = {username: $scope.user.username, password:  $scope.user.password, scope: ['admin']};
         authService.Register(user).then(function(response){
           alert('Registered in correctly!');
