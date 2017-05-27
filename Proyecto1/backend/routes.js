@@ -1,6 +1,8 @@
 var ejemplo = require('./controllers/ejemploController');
 var usersController = require('./controllers/usersController');
 var authController = require('./controllers/authController');
+var labController = require('./controllers/laboratoryController');
+var reservationController = require('./controllers/reservationController');
 
 exports.endpoints = [{method: 'GET', path: '/', config: {handler: function(request, reply){reply('API v1, Labs')}}},
 	{method: 'POST', path: '/v1/register', config: usersController.createUser},
