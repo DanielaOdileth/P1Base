@@ -40,19 +40,17 @@ handler: function(request, reply){
 	}
 };
 
-exports.removeReservationByName = {
+exports.removeReservation = {
 	handler : function(request,reply){
 		//reservation.find({name : 'reservacion'}).remove().exec();
 		var filterBy = request.params.reservationId;
 
-          user.findOneAndUpdate(
-            { _id: filterBy },
-
-						 function (err, users){
+          reservation.findOneAndRemove(
+            { _id: filterBy },function (err, reservations){
               reservations.save(function(err){
-                return reply('ok');
+							})
+							  return reply('ok');
                 console.log('deleted');
-              });
             });
 					}
 };
@@ -63,15 +61,22 @@ exports.updateReservation = {
 		var newName = request.payload.name;
 		var newOrganizacion = request.payload.organization;
 		var newProposito = request.payload.purpose;
+		var newIdLab = request.payload.idLab;
+		var newHoraInicio = request.payload.horaInicio;
+		var newHoraFin = request.payload.horaFin;
+		var newDias = request.payload.dias;
 		reservation.findOneAndUpdate(
 			{_id: filterBy},
 			{
 				name: newName,
 				organization: newOrganizacion,
-				purpose: newProposito
+				purpose: newProposito,
+				idLab: newIdLab,
+				horaInicio: newHoraInicio,
+				horaFin: newHoraFin,
+				dias: newDias
 			}, function(err, reservations){
 				reservations.save(function(err){
-
 				});
 			});
 			console.log("updated");

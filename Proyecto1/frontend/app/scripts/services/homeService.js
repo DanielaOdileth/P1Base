@@ -10,10 +10,10 @@ angular.module('AngularScaffold.Services').factory('HomeService', ['$http',
 				return $http.get(baseUrl + "v1/reservations");
 			},
 			deleteReservation : function(payload, id){
-				return $http.delete(baseUrl + "v1/removeReservation"+id, payload);
+				return $http.delete(baseUrl + "v1/removeReservation/"+id, payload);
 			},
 			updateReservation : function(payload, id){
-				return $http.put(baseUrl + "v1/updateReservation" + id, payload);
+				return $http.put(baseUrl + "v1/updatedReservation/" + id, payload);
 			}
 	    };
 }]);

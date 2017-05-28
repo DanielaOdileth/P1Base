@@ -10,7 +10,7 @@ exports.endpoints = [{method: 'GET', path: '/', config: {handler: function(reque
 	{method: 'GET', path: '/v1/logout', config: authController.logout},
 	{method: 'POST', path: '/v1/addReservation', config : reservationController.createReservation},
 	{method: 'GET', path: '/v1/reservations', config : reservationController.reservations},
-	{method: 'DELETE', path: '/v1/removeReservation/{reservationId}', config : reservationController.removeReservationByName},
+	{method: 'DELETE', path: '/v1/removeReservation/{reservationId}', config : reservationController.removeReservation},
 	{method: 'PUT', path: '/v1/updatedReservation/{reservationId}', config: reservationController.updateReservation}
 	//{method: 'GET',path: '/',config: ejemplo.test}
 ];

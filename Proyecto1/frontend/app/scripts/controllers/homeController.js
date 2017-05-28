@@ -10,7 +10,7 @@ angular.module('AngularScaffold.Controllers')
         }else{
           var reservation = {name : $scope.reservation.name, organization : $scope.reservation.organization,
                             purpose : $scope.reservation.purpose, idLab: "1",
-                            horaInicio : $scope.hourToString($scope.reservation.horaInicio), 
+                            horaInicio : $scope.hourToString($scope.reservation.horaInicio),
                             horaFin : $scope.hourToString($scope.reservation.horaFin),
                             dias : ['1', '2']};
           homeService.addReservation(reservation).then(function(response){
@@ -44,14 +44,14 @@ angular.module('AngularScaffold.Controllers')
         $scope.reservation = item;
         homeService.updateReservation($scope.reservation, item._id).then(function(response){
           alert("Update");
-          $scope.getReservation();
+          $scope.getReservations();
         }).catch(function(err){
           alert(err.data.error + " " + err.data.message);
         });
       }
 
       $scope.deleteReservations = function(item){
-        $scope.user = item;
+        $scope.reservation = item;
         homeService.deleteReservation($scope.reservation, item._id).then(function(response){
           alert("Delete");
           $scope.getReservations();
