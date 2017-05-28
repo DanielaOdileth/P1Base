@@ -9,7 +9,8 @@ exports.createReservation = {
 			idLab : request.payload.idLab,
 			horaInicio : request.payload.horaInicio,
 			horaFin : request.payload.horaFin,
-			dias : request.payload.dias
+			diaInicio : request.payload.diaInicio,
+			diaFin : request.payload.diaFin
 		});
 
 		newReservation.save(function (err) {
@@ -27,8 +28,7 @@ exports.createReservation = {
 //devuelve reservaciones segun el id del lab
 exports.getReservationsByLab = {
 	handler : function(request,reply){
-		console.log(request);
-		var reservations = reservation.find({idLab : "'" + request.body.idLab + "'" });
+		var reservations = reservation.find({idLab : request.params.idLab});
 			reply (reservations);
 	}
 };

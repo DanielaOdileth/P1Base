@@ -7,7 +7,8 @@ var ReservationSchema = mongoose.Schema({
 	idLab : String,
 	horaInicio : String,
 	horaFin : String, 
-	dias : Array
+	diaInicio : String,
+	diaFin : String
 });
 
 module.exports = mongoose.model('Reservation', ReservationSchema);
