@@ -2,7 +2,6 @@ var reservation = require('../schemas/reservation');
 
 exports.createReservation = {
 	handler : function(request,reply){
-		console.log('Llegueeeeeeeee');
 		var newReservation = new reservation({
 			name : request.payload.name,
 			organization : request.payload.organization,
@@ -12,7 +11,6 @@ exports.createReservation = {
 			horaFin : request.payload.horaFin,
 			dias : request.payload.dias
 		});
-		console.log('Llegueeeeeeeee2');
 
 		newReservation.save(function (err) {
          console.log(err);
@@ -25,12 +23,13 @@ exports.createReservation = {
 	}
 };
 
+
 //devuelve reservaciones segun el id del lab
 exports.getReservationsByLab = {
 	handler : function(request,reply){
-		var reservations = reservation.find({idLab : '3.2'});
-			reply(reservations);
-			return reservations;
+		console.log(request);
+		var reservations = reservation.find({idLab : "'" + request.body.idLab + "'" });
+			reply (reservations);
 	}
 };
 

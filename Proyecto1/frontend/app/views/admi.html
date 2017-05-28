@@ -6,6 +6,7 @@
     <link rel="shortcut icon" href="img/logo.png">
 
     <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="jquery/dist/jquery.js"></script>
 
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -94,6 +95,8 @@
             <button type="submit" class="btn btn-default" ng-click="getReservations()">Actualizar</button>
           </div>
 
+          
+          
       <div id="Modal1" class="modal fade" role="dialog">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -105,6 +108,7 @@
             <div class="modal-body">
               <form role = "form">
                 <div class = form-group>
+                  
                   <div>
                     <label>Nombre</label>
                     <input type="text" class="form-control" id="nombre"
@@ -121,9 +125,45 @@
                     placeholder="Proposito" ng-model = "reservation.purpose">
                   </div>
                   </div>
+                   <div class="input-daterange input-group" id = "fecha">
+                      <input type="text" class="input-sm form-control" id ="start" />
+                      <span class="input-group-addon">to</span>
+                      <input type="text" class="input-sm form-control" id="end" />
+                  </div>
+                  <hr widht = "2" color = "green">
+                  <div>
+                    <label>Hora Inicio</label>
+                    <select id = "horaInicio" ng-model = "reservation.horaInicio">
+                     <option value="7" class = "selected">7:00 A.M</option>
+                     <option value="8">8:00 A.M</option>
+                     <option value="9">9:00 A.M</option>
+                     <option value="10">10:00 A.M</option>
+                     <option value="11">11:00 A.M</option>
+                     <option value="13">1:00 P.M</option>
+                     <option value="14">2:00 P.M</option>
+                     <option value="15">3:00 P.M</option>
+                     <option value="16">4:00 P.M</option>
+                  </select>
+                   <hr widht = "2" color = "green">
+                  </div> 
+                   <div>
+                     <label>Hora Fin</label>
+                    <select id = "horaFin" ng-model = "reservation.horaFin">
+                     <option value="8" class = "selected">8:00 A.M</option>
+                     <option value="9">9:00 A.M</option>
+                     <option value="10">10:00 A.M</option>
+                     <option value="11">11:00 A.M</option>
+                     <option value="13">1:00 P.M</option>
+                     <option value="14">2:00 P.M</option>
+                     <option value="15">3:00 P.M</option>
+                     <option value="16">4:00 P.M</option>
+                     <option value="17">5:00 P.M</option>
+                  </select>
+                   </div>
                 </form>
               </div>
               <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-default" ng-click = "addReservation1()">Hacer reservacion</button>
               </div>
             </div>
@@ -172,9 +212,21 @@
 </div>
 </body>
 
+ 
+
+
 <script>
+    
+
     function openModal(evt,modalName){
-      $("#" + modalName).modal()
+      $("#" + modalName).modal();
+
+       $('#fecha').datepicker({
+         format: "dd/mm/yyyy",
+        startDate: "22/05/2017",
+        endDate: "22/06/2017",
+        daysOfWeekDisabled: "0,6"
+       });
     }
 
     function openCity(evt, cityName) {
@@ -194,7 +246,9 @@
       evt.currentTarget.className += " active";
     }
 </script>
-<script src="jquery/dist/jquery.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
+
 <script src="bootstrap/js/modal.js"></script>
  <script src="app.js"></script>
   <script src="scripts/controllers/homeController.js"></script>

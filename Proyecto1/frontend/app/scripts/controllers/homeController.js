@@ -5,17 +5,31 @@ angular.module('AngularScaffold.Controllers')
       $scope.reservations = [];
 
       $scope.addReservation1 = function(){
-        alert('Lllegue reservacion');
-        var reservation = {name : $scope.reservation.name, organization : $scope.reservation.organization,
-                          purpose : $scope.reservation.purpose, horaInicio : '11', horaFin : '12',
-                          dias : ['1', '2']};
-                          alert(reservation.name);
-        homeService.addReservation(reservation).then(function(response){
-          alert('Registered in correctly!');
-        }).catch(function(err){
-          console.log(err);
-          alert(err.data.error + " " + err.data.message);
-        });
+        if(parseInt($scope.reservation.horaInicio) >= parseInt($scope.reservation.horaFin)){
+          alert('Horarios ingresados erroneamente');
+        }else{
+          var reservation = {name : $scope.reservation.name, organization : $scope.reservation.organization,
+                            purpose : $scope.reservation.purpose, idLab: "1",
+                            horaInicio : $scope.hourToString($scope.reservation.horaInicio), 
+                            horaFin : $scope.hourToString($scope.reservation.horaFin),
+                            dias : ['1', '2']};
+          homeService.addReservation(reservation).then(function(response){
+            alert('Registered in correctly!');
+          }).catch(function(err){
+            console.log(err);
+            alert(err.data.error + " " + err.data.message);
+          });
+        }
+      }
+
+      $scope.hourToString = function(param){
+        var word = "";
+        if(parseInt(param) < 13){
+          word = param + ":00 a.m";
+        }else{
+          word = (parseInt(param) - 12) + ":00 p.m";
+        }
+        return word;
       }
 
       $scope.getReservations = function(){
