@@ -33,8 +33,8 @@
                 </div>
                 <div class="iso-section">
                   <ul class="filter-wrapper clearfix">
-                    <li><a href="#" class="tablinks" onclick="openCity(event, 'lab1')"> Laboratorio 1</a></li>
-                    <li><a href="#" class="tablinks" onclick="openCity(event, 'lab2')">Laboratorio 2</a></li>
+                    <li><a href="#" class="tablinks" onclick="openCity(event, 'lab1')" ng-click = "getReservations1(1)"> Laboratorio 1 </a></li>
+                    <li><a href="#" class="tablinks" onclick="openCity(event, 'lab2')" ng-click = "getReservations1(2)">Laboratorio 2</a></li>
                   </ul>
                 </div>
               </div>
@@ -103,11 +103,71 @@
           <p align = "center">
             <button type="button" class="btn btn-primary btn-lg" onclick="openModal(event,'Modal1')">Hacer Reservacion</button>
           </p>
-          <div class="row">
-            <button type="submit" class="btn btn-default" ng-click="getReservations1(1)">Actualizar</button>
-          </div>
+        </div>
 
-
+          <div id="lab2" class="tabcontent">
+      <table class="table table-striped">
+            <tr>
+              <th>
+                Nombre
+              </th>
+              <th>
+                Organización
+              </th>
+              <th>
+                Proposito
+              </th>
+              <th>
+                Fecha Inicio
+              </th>
+              <th>
+                Fecha Fin
+              </th>
+              <th>
+                Hora Inicio
+              </th>
+              <th>
+                Hora Fin
+              </th>
+              <th>
+                Opciones
+              </th>
+            </tr>
+            <tr ng-repeat="reservation in reservations | filter:search ">
+            <td>
+              {{reservation.name}}
+            </td>
+            <td>
+              {{reservation.organization}}
+            </td>
+            <td>
+              {{reservation.purpose}}
+            </td>
+            <td>
+              {{reservation.diaInicio}}
+            </td>
+            <td>
+              {{reservation.diaFin}}
+            </td>
+            <td>
+              {{reservation.horaInicio}}
+            </td>
+            <td>
+              {{reservation.horaFin}}
+            </td>
+            <td>
+              <div class="btn-group btn-group-xs" role="group" aria-label="...">
+                <button type="button" class="btn btn-default" ng-click="updateReservations(reservation)" onclick="openModal(event, 'updateModal')">Modificar</button>
+                <button type="button" class="btn btn-default" ng-click="deleteReservations(reservation)" >Eliminar</button>
+              </div>
+            </td>
+          </tr>
+        </table>
+          <hr size = 2 width = 80%/>
+          <p align = "center">
+            <button type="button" class="btn btn-primary btn-lg" onclick="openModal(event,'Modal1')">Hacer Reservacion</button>
+          </p>
+    </div>
 
       <div id="Modal1" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -171,6 +231,15 @@
                      <option value="16">4:00 P.M</option>
                      <option value="17">5:00 P.M</option>
                   </select>
+                  <hr widht = "2" color = "green">
+                   </div>
+                   <div>
+                     <label>Reservacion</label>
+                     <select id = "lab" ng-model = "reservation.idLab">
+                       <option value = 1>Laboratorio 1</option>
+                       <option value = 2>Laboratorio 2</option>
+                     </select>
+
                    </div>
                 </form>
               </div>
@@ -183,79 +252,6 @@
         </div>
       </div>
 
-      <!--<div id="Modal2" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Modificar Reserva</h4>
-              <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-              <form role = "form">
-                <div class = form-group>
-
-                  <div>
-                    <label>Nombre</label>
-                    <input type="text" class="form-control" id="nombre"
-                    placeholder="Nombre" ng-model = "reservation.name">
-                  </div>
-                  <div>
-                    <label>Organizacion</label>
-                    <input type="text" class="form-control" id="organization"
-                    placeholder="Organizacion" ng-model = "reservation.organization">
-                  </div>
-                  <div>
-                    <label>Proposito</label>
-                    <input type="text" class="form-control" id="purpose"
-                    placeholder="Proposito" ng-model = "reservation.purpose">
-                  </div>
-                  </div>
-                   <div class="input-daterange input-group" id = "fecha">
-                      <input type="text" class="input-sm form-control" id ="start" />
-                      <span class="input-group-addon">to</span>
-                      <input type="text" class="input-sm form-control" id="end" />
-                  </div>
-                  <hr widht = "2" color = "green">
-                  <div>
-                    <label>Hora Inicio</label>
-                    <select id = "horaInicio" ng-model = "reservation.horaInicio">
-                     <option value="7" class = "selected">7:00 A.M</option>
-                     <option value="8">8:00 A.M</option>
-                     <option value="9">9:00 A.M</option>
-                     <option value="10">10:00 A.M</option>
-                     <option value="11">11:00 A.M</option>
-                     <option value="13">1:00 P.M</option>
-                     <option value="14">2:00 P.M</option>
-                     <option value="15">3:00 P.M</option>
-                     <option value="16">4:00 P.M</option>
-                  </select>
-                   <hr widht = "2" color = "green">
-                  </div>
-                   <div>
-                     <label>Hora Fin</label>
-                    <select id = "horaFin" ng-model = "reservation.horaFin">
-                     <option value="8" class = "selected">8:00 A.M</option>
-                     <option value="9">9:00 A.M</option>
-                     <option value="10">10:00 A.M</option>
-                     <option value="11">11:00 A.M</option>
-                     <option value="13">1:00 P.M</option>
-                     <option value="14">2:00 P.M</option>
-                     <option value="15">3:00 P.M</option>
-                     <option value="16">4:00 P.M</option>
-                     <option value="17">5:00 P.M</option>
-                  </select>
-                   </div>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-default" ng-click = "updateReservations(reservation)">Actualizar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>-->
       <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -285,13 +281,6 @@
           </div>
         </div>
       </div>
-
-    </div>
-
-    <div id="lab2" class="tabcontent">
-      <p> Hola </p>
-    </div>
-
   </div>
 </div>
 </body>

@@ -28,6 +28,7 @@ exports.createReservation = {
 //devuelve reservaciones segun el id del lab
 exports.getReservationsByLab = {
 	handler : function(request,reply){
+		console.log('u ' + request.params.idLab);
 		var reservations = reservation.find({idLab : request.params.idLab});
 			reply (reservations);
 	}
