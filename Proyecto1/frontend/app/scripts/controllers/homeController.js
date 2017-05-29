@@ -4,30 +4,35 @@ angular.module('AngularScaffold.Controllers')
       $scope.reservation = {};
       $scope.reservations = [];
       $scope.$sessionStorage = $sessionStorage;
-
+      console.log($sessionStorage.currentUser);
+      
       $scope.addReservation1 = function(){
          $scope.reservation.diaInicio = $("#fecha1").val();
          $scope.reservation.diaFin = $('#fecha2').val();
-
-        if((parseInt($scope.reservation.horaInicio) >= parseInt($scope.reservation.horaFin)) ||
-          ($scope.getDay($scope.reservation.diaInicio) > $scope.getDay($scope.reservation.diaFin))){
-          alert('Horarios ingresados erroneamente');
-        }else{
-          var reservation = {name : $scope.reservation.name, organization : $scope.reservation.organization,
-                            purpose : $scope.reservation.purpose, idLab: $scope.reservation.idLab,
-                            horaInicio : $scope.hourToString($scope.reservation.horaInicio),
-                            horaFin : $scope.hourToString($scope.reservation.horaFin),
-                            diaInicio : $scope.reservation.diaInicio, diaFin : $scope.reservation.diaFin};
-          if($scope.verifyReservations(reservation)){
-            homeService.addReservation(reservation).then(function(response){
-            alert('Registered in correctly!');
-            }).catch(function(err){
-            console.log(err);
-            alert(err.data.error + " " + err.data.message);
-            });
+         
+         if($sessionStorage.currentUser.username == $scope.reservation.name){
+          if((parseInt($scope.reservation.horaInicio) >= parseInt($scope.reservation.horaFin)) ||
+            ($scope.getDay($scope.reservation.diaInicio) > $scope.getDay($scope.reservation.diaFin))){
+            alert('Horarios ingresados erroneamente');
           }else{
-            alert('La reserva que intento realizar entra en conflictos con otras reservas');
+            var reservation = {name : $scope.reservation.name, organization : $scope.reservation.organization,
+                              purpose : $scope.reservation.purpose, idLab: $scope.reservation.idLab,
+                              horaInicio : $scope.hourToString($scope.reservation.horaInicio),
+                              horaFin : $scope.hourToString($scope.reservation.horaFin),
+                              diaInicio : $scope.reservation.diaInicio, diaFin : $scope.reservation.diaFin};
+            if($scope.verifyReservations(reservation)){
+              homeService.addReservation(reservation).then(function(response){
+              alert('Registered in correctly!');
+              }).catch(function(err){
+              console.log(err);
+              alert(err.data.error + " " + err.data.message);
+              });
+            }else{
+              alert('La reserva que intento realizar entra en conflictos con otras reservas');
+            }
           }
+        }else{
+          alert('El nombre de la reservacion debe ser igual al del usuario');
         }
       }
 
@@ -40,7 +45,6 @@ angular.module('AngularScaffold.Controllers')
         }).catch(function(err){
           alert(err.data.error + " " + err.data.message)
         });
-
       }
 
       $scope.getDay = function(param){
@@ -148,11 +152,15 @@ angular.module('AngularScaffold.Controllers')
 
       $scope.updateReservations = function(item){
         $scope.reservation = item;
-        homeService.updateReservation($scope.reservation, item._id).then(function(response){
-          $scope.getReservations();
-        }).catch(function(err){
-          alert(err.data.error + " " + err.data.message);
-        });
+        if($sessionStorage.currentUser.username == $scope.reservation.name){
+          $scope.reservation.horaInicio = hourToString($scope.reservation.horaInicio);
+          $scope.reservation.horaFin = hourToString($scope.reservation.horaFin);
+          homeService.updateReservation($scope.reservation, item._id).then(function(response){
+            $scope.getReservations();
+          }).catch(function(err){
+            alert(err.data.error + " " + err.data.message);
+          });
+        }
       }
 
       $scope.deleteReservations = function(item){

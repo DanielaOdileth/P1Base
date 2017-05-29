@@ -45,9 +45,7 @@
       <div  id="lab1" class="tabcontent" ng-show = "$sessionStorage.currentUser">
           <table class="table table-striped">
             <tr>
-              <th>
-                Id Usuario
-              </th>
+              
               <th>
                 Nombre
               </th>
@@ -74,9 +72,7 @@
               </th>
             </tr>
             <tr ng-repeat="reservation in reservations | filter:search ">
-            <td>
-              {{reservation.idUsuario}}
-            </td>
+            
             <td>
               {{reservation.name}}
             </td>

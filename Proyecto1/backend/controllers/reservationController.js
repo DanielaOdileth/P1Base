@@ -3,7 +3,6 @@ var reservation = require('../schemas/reservation');
 exports.createReservation = {
 	handler : function(request,reply){
 		var newReservation = new reservation({
-			idUsuario : request.params.idUsuario,
 			name : request.payload.name,
 			organization : request.payload.organization,
 			purpose : request.payload.purpose,
