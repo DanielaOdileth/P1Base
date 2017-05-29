@@ -6,7 +6,7 @@ var ReservationSchema = mongoose.Schema({
 	purpose : String,
 	idLab : String,
 	horaInicio : String,
-	horaFin : String, 
+	horaFin : String,
 	diaInicio : String,
 	diaFin : String
 });

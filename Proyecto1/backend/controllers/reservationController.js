@@ -3,6 +3,7 @@ var reservation = require('../schemas/reservation');
 exports.createReservation = {
 	handler : function(request,reply){
 		var newReservation = new reservation({
+			idUsuario : request.params.idUsuario,
 			name : request.payload.name,
 			organization : request.payload.organization,
 			purpose : request.payload.purpose,
@@ -59,6 +60,7 @@ exports.removeReservation = {
 exports.updateReservation = {
 	handler: function(request, reply){
 		var filterBy = request.params.reservationId;
+		//var newIdUsuario = request.params.idUsuario;
 		var newName = request.payload.name;
 		var newOrganizacion = request.payload.organization;
 		var newProposito = request.payload.purpose;

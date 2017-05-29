@@ -21,6 +21,10 @@
 <body ng-app = "AngularScaffold">
 <div ng-controller="HomeController" >
 
+  <div ng-show="$sessionStorage.currentUser">
+      <h1>Bienvenido {{$sessionStorage.currentUser.username}}</h1>
+</div>
+
     <div id="portfolio" style="padding-top:0px; padding-bottom:0px">
           <div class="container">
             <div class="row">
@@ -44,6 +48,9 @@
       <div  id="lab1" class="tabcontent">
           <table class="table table-striped">
             <tr>
+              <th>
+                Id Usuario
+              </th>
               <th>
                 Nombre
               </th>
@@ -71,6 +78,9 @@
             </tr>
             <tr ng-repeat="reservation in reservations | filter:search ">
             <td>
+              {{reservation.idUsuario}}
+            </td>
+            <td>
               {{reservation.name}}
             </td>
             <td>
@@ -92,9 +102,10 @@
               {{reservation.horaFin}}
             </td>
             <td>
-              <div class="btn-group btn-group-xs" role="group" aria-label="...">
-                <button type="button" class="btn btn-default" ng-click="updateReservations(reservation)" onclick="openModal(event, 'updateModal')">Modificar</button>
-                <button type="button" class="btn btn-default" ng-click="deleteReservations(reservation)" >Eliminar</button>
+              <div class="btn-group btn-group-xs" role="group" aria-label="..." ng-show="$sessionStorage.currentUser">
+                <button type="button" class="btn btn-default" ng-click="updateReservations(reservation)" onclick="openModal(event, 'updateModal')" ng-show = "{{$sessionStorage.currentUser.username == reservation.name}}">Modificar</button>
+                <button type="button" class="btn btn-default" ng-click="deleteReservations(reservation)" ng-show = "{{$sessionStorage.currentUser.username == reservation.name}}" >Eliminar</button>
+                <!--<h1> {{$sessionStorage.currentUser.username}}</h1>-->
               </div>
             </td>
           </tr>

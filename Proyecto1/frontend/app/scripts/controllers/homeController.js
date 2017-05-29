@@ -3,11 +3,12 @@ angular.module('AngularScaffold.Controllers')
     	/*$scope.exampleObject = {text: "Hola, Mundo"}*/
       $scope.reservation = {};
       $scope.reservations = [];
+      $scope.$sessionStorage = $sessionStorage;
 
       $scope.addReservation1 = function(){
          $scope.reservation.diaInicio = $("#fecha1").val();
          $scope.reservation.diaFin = $('#fecha2').val();
-          
+
         if((parseInt($scope.reservation.horaInicio) >= parseInt($scope.reservation.horaFin)) ||
           ($scope.getDay($scope.reservation.diaInicio) > $scope.getDay($scope.reservation.diaFin))){
           alert('Horarios ingresados erroneamente');
@@ -163,9 +164,9 @@ angular.module('AngularScaffold.Controllers')
         });
       }
 
-      /*$scope.isAdmin = function(){
+      $scope.isAdmin = function(){
         console.log('Aquii admin');
         return $sessionStorage.currentUser && $sessionStorage.currentUser.scope.indexOf('admin') > -1;
-      }*/
+      }
 
   }]);
