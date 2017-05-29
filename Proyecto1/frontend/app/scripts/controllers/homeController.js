@@ -3,6 +3,8 @@ angular.module('AngularScaffold.Controllers')
     	/*$scope.exampleObject = {text: "Hola, Mundo"}*/
       $scope.reservation = {};
       $scope.reservations = [];
+      
+      $scope.$sessionStorage = $sessionStorage;
 
       $scope.addReservation1 = function(){
          $scope.reservation.diaInicio = $("#fecha1").val();

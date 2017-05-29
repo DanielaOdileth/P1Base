@@ -17,6 +17,7 @@ angular.module('AngularScaffold.Controllers')
         authService.Login(user).then(function(response){
           $sessionStorage.currentUser = response.data;
           $scope.user = {};
+          $state.go('home');
         }).catch(function(err){
           alert(err.data.error + " " + err.data.message);
         });

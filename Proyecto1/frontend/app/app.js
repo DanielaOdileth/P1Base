@@ -10,5 +10,5 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             url: '/home',
             templateUrl: '/views/admi.html',
             controller: 'HomeController'
-        });
+        });       
 }])

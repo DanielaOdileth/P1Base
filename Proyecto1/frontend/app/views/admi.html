@@ -21,7 +21,7 @@
 <body ng-app = "AngularScaffold">
 <div ng-controller="HomeController" >
 
-    <div id="portfolio" style="padding-top:0px; padding-bottom:0px">
+    <div id="portfolio" style="padding-top:0px; padding-bottom:0px" ng-show="$sessionStorage.currentUser">
           <div class="container">
             <div class="row">
               <div class="col-md-12 col-sm-12">
@@ -34,7 +34,7 @@
                 <div class="iso-section">
                   <ul class="filter-wrapper clearfix">
                     <li><a href="#" class="tablinks" onclick="openCity(event, 'lab1')" ng-click = "getReservations1(1)"> Laboratorio 1 </a></li>
-                    <li><a href="#" class="tablinks" onclick="openCity(event, 'lab2')" ng-click = "getReservations1(2)">Laboratorio 2</a></li>
+                    <li><a href="#" class="tablinks" onclick="openCity(event, 'lab1')" ng-click = "getReservations1(2)">Laboratorio 2</a></li>
                   </ul>
                 </div>
               </div>
@@ -105,70 +105,7 @@
           </p>
         </div>
 
-          <div id="lab2" class="tabcontent">
-      <table class="table table-striped">
-            <tr>
-              <th>
-                Nombre
-              </th>
-              <th>
-                Organización
-              </th>
-              <th>
-                Proposito
-              </th>
-              <th>
-                Fecha Inicio
-              </th>
-              <th>
-                Fecha Fin
-              </th>
-              <th>
-                Hora Inicio
-              </th>
-              <th>
-                Hora Fin
-              </th>
-              <th>
-                Opciones
-              </th>
-            </tr>
-            <tr ng-repeat="reservation in reservations | filter:search ">
-            <td>
-              {{reservation.name}}
-            </td>
-            <td>
-              {{reservation.organization}}
-            </td>
-            <td>
-              {{reservation.purpose}}
-            </td>
-            <td>
-              {{reservation.diaInicio}}
-            </td>
-            <td>
-              {{reservation.diaFin}}
-            </td>
-            <td>
-              {{reservation.horaInicio}}
-            </td>
-            <td>
-              {{reservation.horaFin}}
-            </td>
-            <td>
-              <div class="btn-group btn-group-xs" role="group" aria-label="...">
-                <button type="button" class="btn btn-default" ng-click="updateReservations(reservation)" onclick="openModal(event, 'updateModal')">Modificar</button>
-                <button type="button" class="btn btn-default" ng-click="deleteReservations(reservation)" >Eliminar</button>
-              </div>
-            </td>
-          </tr>
-        </table>
-          <hr size = 2 width = 80%/>
-          <p align = "center">
-            <button type="button" class="btn btn-primary btn-lg" onclick="openModal(event,'Modal1')">Hacer Reservacion</button>
-          </p>
-    </div>
-
+         
       <div id="Modal1" class="modal fade" role="dialog">
         <div class="modal-dialog">
           <div class="modal-content">

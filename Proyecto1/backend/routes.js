@@ -1,4 +1,3 @@
-var ejemplo = require('./controllers/ejemploController');
 var usersController = require('./controllers/usersController');
 var authController = require('./controllers/authController');
 var labController = require('./controllers/laboratoryController');
