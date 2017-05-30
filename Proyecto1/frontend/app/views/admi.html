@@ -20,6 +20,7 @@
 </head>
 <body ng-app = "AngularScaffold">
 <div ng-controller="HomeController" >
+<h1> ¡Bienvenido, {{$sessionStorage.currentUser.username}}! </h1>
 
     <div id="portfolio" style="padding-top:0px; padding-bottom:0px" ng-show="$sessionStorage.currentUser">
           <div class="container">
@@ -45,7 +46,7 @@
       <div  id="lab1" class="tabcontent" ng-show = "$sessionStorage.currentUser">
           <table class="table table-striped">
             <tr>
-              
+
               <th>
                 Nombre
               </th>
@@ -72,7 +73,7 @@
               </th>
             </tr>
             <tr ng-repeat="reservation in reservations | filter:search ">
-            
+
             <td>
               {{reservation.name}}
             </td>
@@ -109,7 +110,7 @@
           </p>
         </div>
 
-         
+
       <div id="Modal1" class="modal fade" role="dialog">
         <div class="modal-dialog">
           <div class="modal-content">

@@ -41,6 +41,15 @@ handler: function(request, reply){
 	}
 };
 
+//Manuel todo enojado
+exports.getReservationsByName = {
+	handler : function(request,reply){
+		console.log('u ' + request.params.name);
+		var reservations = reservation.find({name: request.params.name});
+			reply (reservations);
+	}
+};
+
 exports.removeReservation = {
 	handler : function(request,reply){
 		//reservation.find({name : 'reservacion'}).remove().exec();
