@@ -116,7 +116,7 @@
 
         </div>
         <hr size=2 width=8 0%/>
-        <p align="center">
+        <p ng-show="$sessionStorage.currentUser" align="center">
             <button type="button" id="primario" class="btn-primary btn-lg" onclick="openModal(event,'Modal1')">Hacer Reservación</button>
 
         </p>
@@ -202,7 +202,7 @@
                                 </div>
                             </form>
                         </div>
-
+                        
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-default" ng-click="addReservation1()">Hacer reservación</button>
