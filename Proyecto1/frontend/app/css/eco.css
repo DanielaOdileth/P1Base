@@ -161,7 +161,7 @@ button:hover {
 }
 
 .table td {
-    background: #b49200 none repeat scroll 0 0;
+    background: #816900 none repeat scroll 0 0;
     border-bottom: 2px solid #e5a253;
     color: #f1f1f1;
     font-size: 16px;
@@ -176,27 +176,11 @@ button:hover {
     transition: all .35s;
 }
 
-td .free,
-td .paid {
-    background: #efefef none repeat scroll 0 0;
-    border-bottom: 2px solid #d4d4d4;
-    text-align: center;
-    padding: 16.4px 21px;
-    cursor: pointer;
-}
-
 th .free,
 th .paid {
     text-align: center;
 }
 
-td -free :hover,
-td .paid :hover {
-    background: #dedede none repeat scroll 0 0;
-    -webkit-transition: all .35s;
-    -moz-transition: all .35s;
-    transition: all .35s;
-}
 
 .features_table th {
     font-size: 20px !important;
@@ -206,7 +190,7 @@ td .paid :hover {
 .table th,
 th.free,
 th.paid {
-    background: #6b6b6b none repeat scroll 0 0;
+    background: #fff none repeat scroll 0 0;
     color: #004E64;
     font-weight: 600;
     margin: 0;
@@ -241,12 +225,8 @@ th.free {
     /* Set the section counter to 0 */
 }
 
-.table td::before {
-    counter-increment: section;
-    /* Increment the section counter*/
-    content: "" counter(section) ": ";
-    /* Display the counter */
-}
+
+
 
 header .navbar-default {
     background: none;
