@@ -10,7 +10,11 @@
 </head>
 
 <body ng-app="AngularScaffold">
+    
     <div ng-controller="LoginController">
+        <div class="container" ng-show="$sessionStorage.currentUser">
+            <h1> Welcome {{$sessionStorage.currentUser.username}} </h1>
+        </div>
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header pull-right">
@@ -27,9 +31,7 @@
                 </div>
             </div>
         </nav>
-        <div class="container" ng-show="$sessionStorage.currentUser">
-            <h1> ¡Bienvenido, {{$sessionStorage.currentUser.username}}! </h1>
-        </div>
+        
         <br>
         <div class="container" ng-show="!$sessionStorage.currentUser">
             <div class="row">
@@ -40,7 +42,7 @@
                                 <div class="col-lg-12">
 
                                     <form id="register-form" action="#" method="post" role="form" style="display: block;">
-                                        <h2>REGISTER</h2>
+                                        <h2 id="regi">Enter data</h2>
                                         <div class="form-group">
                                             <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="" ng-model="user.username">
                                         </div>
@@ -56,7 +58,7 @@
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-sm-6 col-sm-offset-3">
-                                                    <button type="submit" class="btn btn-outline-info btn-lg" ng-click="register()">REGISTER</button>
+                                                    <button type="submit" id="botr" class="btn btn-outline-info btn-lg" ng-click="register()">REGISTER</button>
                                                 </div>
                                             </div>
                                         </div>

@@ -53,7 +53,7 @@ h6,
 h1 {
     color: #fff;
     font-family: 'Noto Serif', serif;
-    font-size: 60px;
+    font-size: 50px;
     font-weight: 400;
     font-style: normal;
     line-height: 44px;
@@ -61,6 +61,7 @@ h1 {
     text-align: left;
     opacity: 0.65;
     filter: alpha(opacity=65);
+    text-transform: uppercase;
 }
 
 h2 {
@@ -114,6 +115,26 @@ button:hover {
     box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
 }
 
+#titu{
+    text-align: center;
+    font-weight: 900;
+    background-color: rgba(173, 173, 173, 0.59) ;
+    color: #ce6700 ;
+    font-size: 30px;
+    font-family: 'Arsenal';
+   
+}
+
+#regi{
+    font-size: 40px;
+    font-family: 'Roboto', sans-serif ;
+}
+
+#botr{
+    text-align:left;
+    padding: 15px 45px;
+}
+
 .btn {
     background-color: #2D3B55 ;
     outline: none;
@@ -134,20 +155,13 @@ button:hover {
     background-color: #E8E9EC;
 }
 
-.features_table th {
-    font-size: 25px !important;
-}
 
 .features_table td {
     list-style: none;
 }
 
-.features_table th {
-    font-size: 21px !important;
-}
-
 .table td {
-    background: #da9748 none repeat scroll 0 0;
+    background: #b49200 none repeat scroll 0 0;
     border-bottom: 2px solid #e5a253;
     color: #f1f1f1;
     font-size: 16px;
@@ -185,7 +199,8 @@ td .paid :hover {
 }
 
 .features_table th {
-    font-size: 23px !important;
+    font-size: 20px !important;
+    padding: 10px 0px;
 }
 
 .table th,

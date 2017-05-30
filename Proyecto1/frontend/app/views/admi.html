@@ -118,13 +118,14 @@
         <hr size=2 width=8 0%/>
         <p align="center">
             <button type="button" id="primario" class="btn-primary btn-lg" onclick="openModal(event,'Modal1')">Hacer Reservación</button>
+
         </p>
 
         <div id="Modal1" class="modal fade" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Reservaciones Laboratorio 1</h4>
+                        <h4 class="jumbotron modal-title" id="titu">RESERVACIONES DEL LABORATORIO</h4>
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
@@ -145,56 +146,64 @@
                                         <input type="text" class="form-control" id="purpose" placeholder="Proposito" ng-model="reservation.purpose">
                                     </div>
                                 </div>
+                                <label>Fecha de Duración</label>
                                 <div class="input-group">
+
                                     <input type="text" class="form-control" id="fecha1">
                                     <span class="input-group-addon">to</span>
                                     <input type="text" class="form-control" id="fecha2">
                                 </div>
-                                <hr widht="2" color="green">
+                                <hr width="2" color="green">
+                                
                                 <div>
                                     <label>Hora Inicio</label>
-                                    <select id="horaInicio" ng-model="reservation.horaInicio">
-                     <option value="7" class = "selected">7:00 A.M</option>
-                     <option value="8">8:00 A.M</option>
-                     <option value="9">9:00 A.M</option>
-                     <option value="10">10:00 A.M</option>
-                     <option value="11">11:00 A.M</option>
-                     <option value="13">1:00 P.M</option>
-                     <option value="14">2:00 P.M</option>
-                     <option value="15">3:00 P.M</option>
-                     <option value="16">4:00 P.M</option>
-                  </select>
-                                    <hr widht="2" color="green">
-                                </div>
+                                    <select id = "horaInicio" ng-model = "reservation.horaInicio">
+                                     <option value="7" class = "selected">7:00 A.M</option>
+                                     <option value="8">8:00 A.M</option>
+                                     <option value="9">9:00 A.M</option>
+                                     <option value="10">10:00 A.M</option>
+                                     <option value="11">11:00 A.M</option>
+                                     <option value="13">1:00 P.M</option>
+                                     <option value="14">2:00 P.M</option>
+                                     <option value="15">3:00 P.M</option>
+                                     <option value="16">4:00 P.M</option>
+                                  </select>
+                                   <hr widht = "2" color = "green">
+                                  </div>
+
+                                
+                                <hr width="2" color="green">
+                                
                                 <div>
                                     <label>Hora Fin</label>
                                     <select id="horaFin" ng-model="reservation.horaFin">
-                     <option value="8" class = "selected">8:00 A.M</option>
-                     <option value="9">9:00 A.M</option>
-                     <option value="10">10:00 A.M</option>
-                     <option value="11">11:00 A.M</option>
-                     <option value="13">1:00 P.M</option>
-                     <option value="14">2:00 P.M</option>
-                     <option value="15">3:00 P.M</option>
-                     <option value="16">4:00 P.M</option>
-                     <option value="17">5:00 P.M</option>
-                  </select>
-                                    <hr widht="2" color="green">
+                                     <option value="8" class = "selected">8:00 A.M</option>
+                                     <option value="9">9:00 A.M</option>
+                                     <option value="10">10:00 A.M</option>
+                                     <option value="11">11:00 A.M</option>
+                                     <option value="13">1:00 P.M</option>
+                                     <option value="14">2:00 P.M</option>
+                                     <option value="15">3:00 P.M</option>
+                                     <option value="16">4:00 P.M</option>
+                                     <option value="17">5:00 P.M</option>
+                                  </select>
+                                    <hr width="2" color="green">
                                 </div>
                                 <div>
                                     <label>Reservacion</label>
                                     <select id="lab" ng-model="reservation.idLab">
-                       <option value = 1>Laboratorio 1</option>
-                       <option value = 2>Laboratorio 2</option>
-                     </select>
-
+                                       <option value = 1>Laboratorio 1</option>
+                                       <option value = 2>Laboratorio 2</option>
+                                     </select>
                                 </div>
                             </form>
                         </div>
+
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-default" ng-click="addReservation1()">Hacer reservación</button>
                         </div>
+
                     </div>
                 </div>
             </div>
