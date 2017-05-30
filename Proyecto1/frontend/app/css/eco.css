@@ -53,7 +53,7 @@ h6,
 h1 {
     color: #fff;
     font-family: 'Noto Serif', serif;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 400;
     font-style: normal;
     line-height: 44px;
@@ -75,6 +75,21 @@ h2 {
 
 button {
     font-family: 'Roboto', sans-serif;
+}
+
+.hrs , .rsv{
+    padding: 15px 30px;
+    font-family: 'Noto Serif', serif;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    width: 170px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.rsv{
+    width: 400px !important;
+    font-size: 20px;
 }
 
 button:hover {
@@ -161,7 +176,7 @@ button:hover {
 }
 
 .table td {
-    background: #816900 none repeat scroll 0 0;
+    background: #a08200 none repeat scroll 0 0;
     border-bottom: 2px solid #e5a253;
     color: #f1f1f1;
     font-size: 16px;

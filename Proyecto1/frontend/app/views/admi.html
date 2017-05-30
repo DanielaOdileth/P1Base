@@ -154,44 +154,48 @@
                                     <input type="text" class="form-control" id="fecha2">
                                 </div>
                                 <hr width="2" color="green">
-                                
-                                <div>
-                                    <label>Hora Inicio</label>
-                                    <select id = "horaInicio" ng-model = "reservation.horaInicio">
-                                         <option value="7" class = "selected">7:00 A.M</option>
-                                         <option value="8">8:00 A.M</option>
-                                         <option value="9">9:00 A.M</option>
-                                         <option value="10">10:00 A.M</option>
-                                         <option value="11">11:00 A.M</option>
-                                         <option value="13">1:00 P.M</option>
-                                         <option value="14">2:00 P.M</option>
-                                         <option value="15">3:00 P.M</option>
-                                         <option value="16">4:00 P.M</option>
-                                      </select>
-                                   <hr widht = "2" color = "green">
+                                <div class="row">
+                                  <div class="col-lg-6">
+                                    <div class="input-group">
+                                        <div>
+                                        <label>Hora Inicio</label>
+                                        <select class="hrs" id = "horaInicio" ng-model = "reservation.horaInicio">
+                                             <option value="7" class = "selected">7:00 A.M</option>
+                                             <option value="8">8:00 A.M</option>
+                                             <option value="9">9:00 A.M</option>
+                                             <option value="10">10:00 A.M</option>
+                                             <option value="11">11:00 A.M</option>
+                                             <option value="13">1:00 P.M</option>
+                                             <option value="14">2:00 P.M</option>
+                                             <option value="15">3:00 P.M</option>
+                                             <option value="16">4:00 P.M</option>
+                                          </select>
+                                      </div>
+                                    </div>
                                   </div>
-
-                                
-                                <hr width="2" color="green">
-                                
-                                <div>
-                                    <label>Hora Fin</label>
-                                    <select id="horaFin" ng-model="reservation.horaFin">
-                                         <option value="8" class = "selected">8:00 A.M</option>
-                                         <option value="9">9:00 A.M</option>
-                                         <option value="10">10:00 A.M</option>
-                                         <option value="11">11:00 A.M</option>
-                                         <option value="13">1:00 P.M</option>
-                                         <option value="14">2:00 P.M</option>
-                                         <option value="15">3:00 P.M</option>
-                                         <option value="16">4:00 P.M</option>
-                                         <option value="17">5:00 P.M</option>
-                                      </select>
-                                    <hr width="2" color="green">
+                                  <div class="col-lg-6">
+                                    <div class="input-group">
+                                        <div>
+                                            <label>Hora Fin</label>
+                                            <select class="hrs" id="horaFin" ng-model="reservation.horaFin">
+                                                 <option value="8" class = "selected">8:00 A.M</option>
+                                                 <option value="9">9:00 A.M</option>
+                                                 <option value="10">10:00 A.M</option>
+                                                 <option value="11">11:00 A.M</option>
+                                                 <option value="13">1:00 P.M</option>
+                                                 <option value="14">2:00 P.M</option>
+                                                 <option value="15">3:00 P.M</option>
+                                                 <option value="16">4:00 P.M</option>
+                                                 <option value="17">5:00 P.M</option>
+                                              </select>
+                                        </div>
+                                    </div>
+                                  </div>
                                 </div>
+                                <hr width="2" color="green">
                                 <div>
                                     <label>Reservacion</label>
-                                    <select id="lab" ng-model="reservation.idLab">
+                                    <select class="rsv" id="lab" ng-model="reservation.idLab">
                                        <option value = 1>Laboratorio 1</option>
                                        <option value = 2>Laboratorio 2</option>
                                      </select>
@@ -242,7 +246,7 @@
                                 <hr widht="2" color="green">
                                 <div>
                                     <label>Hora Inicio</label>
-                                    <select id="horaInicio1" ng-model="reservation.horaInicio">
+                                    <select class="hrs" id="horaInicio1" ng-model="reservation.horaInicio">
                      <option value="7" class = "selected">7:00 A.M</option>
                      <option value="8">8:00 A.M</option>
                      <option value="9">9:00 A.M</option>
@@ -257,7 +261,7 @@
                                 </div>
                                 <div>
                                     <label>Hora Fin</label>
-                                    <select id="horaFin1" ng-model="reservation.horaFin">
+                                    <select class="hrs" id="horaFin1" ng-model="reservation.horaFin">
                      <option value="8" class = "selected">8:00 A.M</option>
                      <option value="9">9:00 A.M</option>
                      <option value="10">10:00 A.M</option>
@@ -272,7 +276,7 @@
                                 </div>
                                 <div>
                                     <label>Reservación</label>
-                                    <select id="lab1" ng-model="reservation.idLab">
+                                    <select class="rsv" id="lab1" ng-model="reservation.idLab">
                        <option value = 1>Laboratorio 1</option>
                        <option value = 2>Laboratorio 2</option>
                      </select>
@@ -295,54 +299,44 @@
 <script>
     function openModal(evt, modalName) {
         $("#" + modalName).modal();
-
         $('#fecha1').datepicker({
             format: "dd/mm/yyyy",
             startDate: "31/05/2017",
             endDate: "30/06/2017",
             daysOfWeekDisabled: "0,6"
         });
-
         $('#fechanueva1').datepicker({
             format: "dd/mm/yyyy",
             startDate: "31/05/2017",
             endDate: "30/06/2017",
             daysOfWeekDisabled: "0,6"
         });
-
         $('#fecha2').datepicker({
             format: "dd/mm/yyyy",
             startDate: "31/05/2017",
             endDate: "30/06/2017",
             daysOfWeekDisabled: "0,6"
         });
-
         $('#fechanueva2').datepicker({
             format: "dd/mm/yyyy",
             startDate: "31/05/2017",
             endDate: "30/06/2017",
             daysOfWeekDisabled: "0,6"
         });
-
     }
-
     function openCity(evt, cityName) {
         var i, tabcontent, tablinks;
-
         tabcontent = document.getElementsByClassName("tabcontent");
         for (i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";
         }
-
         tablinks = document.getElementsByClassName("tablinks");
         for (i = 0; i < tablinks.length; i++) {
             tablinks[i].className = tablinks[i].className.replace(" active", "");
         }
-
         document.getElementById(cityName).style.display = "block";
         evt.currentTarget.className += " active";
     }
-
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
