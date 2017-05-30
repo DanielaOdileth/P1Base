@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900);
+
 .video-container {
   position: relative;
   padding-bottom: 56.25%;
@@ -46,6 +47,11 @@ h6,
 .h6 {
   color: #666666;
 }
+
+h1 { color: #fff; font-family: 'Noto Serif', serif; font-size: 60px; font-weight: 400; font-style: italic; line-height: 44px; margin: 0 0 12px; text-align: left; opacity: 0.65;
+  filter: alpha(opacity=65);}
+
+
 header .navbar-default {
   background: none;
   border: none;

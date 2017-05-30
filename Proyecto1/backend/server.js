@@ -15,7 +15,8 @@ server.connection({
    });
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://127.0.0.1:27017/Laboratorio')
+//mongoose.connect('mongodb://127.0.0.1:27017/Laboratorio')
+mongoose.connect('mongodb://juany:password@ds155651.mlab.com:55651/laboratorio')
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'));
 db.once('open', function callback() {
