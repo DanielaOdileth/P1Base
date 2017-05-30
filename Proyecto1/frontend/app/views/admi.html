@@ -21,15 +21,15 @@
 
 <body ng-app="AngularScaffold">
     <div ng-controller="HomeController">
-        
-        
+
+
         <div id="portfolio" style="padding-top:0px; padding-bottom:0px" ng-show="$sessionStorage.currentUser">
-            
+
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
                         <div class="section-title" style="padding-bottom:0px; margin-top:30px">
-                            
+
                             <div class="strong">
                                 <h2 class="jumbotron">LABORATORIOS</h2>
                             </div>
@@ -46,78 +46,79 @@
                 </div>
             </div>
         </div>
-
         <div id="lab1" class="tabcontent" ng-show="$sessionStorage.currentUser">
-            <table class="table table-striped">
-                <tr>
-                    <th>
-                        Lab
-                    </th>
-                    <th>
-                        Nombre
-                    </th>
-                    <th>
-                        Organización
-                    </th>
-                    <th>
-                        Proposito
-                    </th>
-                    <th>
-                        Fecha Inicio
-                    </th>
-                    <th>
-                        Fecha Fin
-                    </th>
-                    <th>
-                        Hora Inicio
-                    </th>
-                    <th>
-                        Hora Fin
-                    </th>
-                    <th>
-                        Opciones
-                    </th>
-                </tr>
-                <tr ng-repeat="reservation in reservations | filter:search ">
-                    <td>
-                        {{reservation.idLab}}
-                    </td>
-                    <td>
-                        {{reservation.name}}
-                    </td>
-                    <td>
-                        {{reservation.organization}}
-                    </td>
-                    <td>
-                        {{reservation.purpose}}
-                    </td>
-                    <td>
-                        {{reservation.diaInicio}}
-                    </td>
-                    <td>
-                        {{reservation.diaFin}}
-                    </td>
-                    <td>
-                        {{reservation.horaInicio}}
-                    </td>
-                    <td>
-                        {{reservation.horaFin}}
-                    </td>
-                    <td>
-                        <div class="btn-group btn-group-xs" role="group" aria-label="..." ng-show="$sessionStorage.currentUser">
-                            <button type="button" class="btn btn-default" ng-click="updateReservations(reservation)" onclick="openModal(event, 'updateModal')" ng-show="{{$sessionStorage.currentUser.username == reservation.name}}">Modificar</button>
-                            <button type="button" class="btn btn-default" ng-click="deleteReservations(reservation)" ng-show="{{$sessionStorage.currentUser.username == reservation.name}}">Eliminar</button>
-                            <!--<h1> {{$sessionStorage.currentUser.username}}</h1>-->
-                        </div>
-                    </td>
-                </tr>
-            </table>
-            <hr size=2 width=8 0%/>
-            <p align="center">
-                <button type="button" class="btn btn-primary btn-lg" onclick="openModal(event,'Modal1')">Hacer Reservacion</button>
-            </p>
-        </div>
+            <section class="features_table">
+                <table class="table table-striped">
+                    <tr>
+                        <th class="derecha">
+                            Lab
+                        </th>
+                        <th class="free">
+                            Nombre
+                        </th>
+                        <th class="free">
+                            Organización
+                        </th>
+                        <th class="free">
+                            Proposito
+                        </th>
+                        <th class="free">
+                            Fecha Inicio
+                        </th>
+                        <th class="free">
+                            Fecha Fin
+                        </th>
+                        <th class="free">
+                            Hora Inicio
+                        </th>
+                        <th class="free">
+                            Hora Fin
+                        </th>
+                        <th class="paid">
+                            Opciones
+                        </th>
+                    </tr>
+                    <tr ng-repeat="reservation in reservations | filter:search ">
+                        <td>
+                            {{reservation.idLab}}
+                        </td>
+                        <td>
+                            {{reservation.name}}
+                        </td>
+                        <td>
+                            {{reservation.organization}}
+                        </td>
+                        <td>
+                            {{reservation.purpose}}
+                        </td>
+                        <td>
+                            {{reservation.diaInicio}}
+                        </td>
+                        <td>
+                            {{reservation.diaFin}}
+                        </td>
+                        <td>
+                            {{reservation.horaInicio}}
+                        </td>
+                        <td>
+                            {{reservation.horaFin}}
+                        </td>
+                        <td>
+                            <div class="btn-group btn-group-xs" role="group" aria-label="..." ng-show="$sessionStorage.currentUser">
+                                <button type="button" class="btn btn-default" ng-click="updateReservations(reservation)" onclick="openModal(event, 'updateModal')" ng-show="{{$sessionStorage.currentUser.username == reservation.name}}">Modificar</button>
+                                <button type="button" class="btn btn-default" ng-click="deleteReservations(reservation)" ng-show="{{$sessionStorage.currentUser.username == reservation.name}}">Eliminar</button>
+                                <!--<h1> {{$sessionStorage.currentUser.username}}</h1>-->
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </section>
 
+        </div>
+        <hr size=2 width=8 0%/>
+        <p align="center">
+            <button type="button" id="primario" class="btn-primary btn-lg" onclick="openModal(event,'Modal1')">Hacer Reservación</button>
+        </p>
 
         <div id="Modal1" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -339,6 +340,8 @@
 <script src="bootstrap/js/modal.js"></script>
 <script src="app.js"></script>
 <script src="scripts/controllers/homeController.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Arsenal' rel='stylesheet' type='text/css'>
+
 <script src="scripts/controllers/loginController.js"></script>
 <script src="scripts/services/authService.js"></script>
 <script src="scripts/services/homeService.js"></script>

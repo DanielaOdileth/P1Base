@@ -18,16 +18,19 @@
                         <div class="form-group" ng-show="!$sessionStorage.currentUser">
                             <input type="text" class="form-control" placeholder="username" ng-model="user.username">
                             <input type="password" class="form-control" placeholder="password" ng-model="user.password">
-                            <button type="submit" class="btn btn-default" ng-click="login(user)">Log in</button>
+                            <button type="submit" class="btn btn-primary btn-lg" ng-click="login(user)">Log in</button>
                         </div>
                         <div class="row">
-                            <button type="submit" class="btn btn-default" ng-click="logout()" ng-show="$sessionStorage.currentUser">Log out</button>
+                            <button type="submit" class="btn btn-primary btn-lg" ng-click="logout()" ng-show="$sessionStorage.currentUser">Log out</button>
                         </div>
                     </form>
                 </div>
             </div>
         </nav>
-        <div class="container" ng-show="$sessionStorage.currentUser"><h1> ¡Bienvenido, {{$sessionStorage.currentUser.username}}! </h1></div>
+        <div class="container" ng-show="$sessionStorage.currentUser">
+            <h1> ¡Bienvenido, {{$sessionStorage.currentUser.username}}! </h1>
+        </div>
+        <br>
         <div class="container" ng-show="!$sessionStorage.currentUser">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
@@ -39,13 +42,13 @@
                                     <form id="register-form" action="#" method="post" role="form" style="display: block;">
                                         <h2>REGISTER</h2>
                                         <div class="form-group">
-                                            <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value=""  ng-model="user.username">
+                                            <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="" ng-model="user.username">
                                         </div>
                                         <div class="form-group">
-                                            <input  type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Name" value="" ng-model="user.name">
+                                            <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Name" value="" ng-model="user.name">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" >
+                                            <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password" ng-model="user.password">
@@ -61,6 +64,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-6 tabs">
