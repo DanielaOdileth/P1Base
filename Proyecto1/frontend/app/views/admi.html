@@ -36,6 +36,7 @@
                   <ul class="filter-wrapper clearfix">
                     <li><a href="#" class="tablinks" onclick="openCity(event, 'lab1')" ng-click = "getReservations1(1)"> Laboratorio 1 </a></li>
                     <li><a href="#" class="tablinks" onclick="openCity(event, 'lab1')" ng-click = "getReservations1(2)">Laboratorio 2</a></li>
+                    <li><a href="#" class="tablinks" onclick="openCity(event, 'lab1')" ng-click = "getReservationsByName($sessionStorage.currentUser.username)">Mis reservaciones</a></li>
                   </ul>
                 </div>
               </div>
@@ -46,7 +47,9 @@
       <div  id="lab1" class="tabcontent" ng-show = "$sessionStorage.currentUser">
           <table class="table table-striped">
             <tr>
-
+               <th>
+                Lab
+              </th>
               <th>
                 Nombre
               </th>
@@ -73,7 +76,9 @@
               </th>
             </tr>
             <tr ng-repeat="reservation in reservations | filter:search ">
-
+            <td>
+              {{reservation.idLab}}
+            </td>
             <td>
               {{reservation.name}}
             </td>
@@ -208,17 +213,17 @@
 
                   <div>
                     <label>Nombre</label>
-                    <input type="text" class="form-control" id="nombre"
+                    <input type="text" class="form-control" id="nombre1"
                     placeholder="Nombre" ng-model = "reservation.name">
                   </div>
                   <div>
                     <label>Organizacion</label>
-                    <input type="text" class="form-control" id="organization"
+                    <input type="text" class="form-control" id="organization1"
                     placeholder="Organizacion" ng-model = "reservation.organization">
                   </div>
                   <div>
                     <label>Proposito</label>
-                    <input type="text" class="form-control" id="purpose"
+                    <input type="text" class="form-control" id="purpose1"
                     placeholder="Proposito" ng-model = "reservation.purpose">
                   </div>
                   </div>
@@ -230,7 +235,7 @@
                   <hr widht = "2" color = "green">
                   <div>
                     <label>Hora Inicio</label>
-                    <select id = "horaInicio" ng-model = "reservation.horaInicio">
+                    <select id = "horaInicio1" ng-model = "reservation.horaInicio">
                      <option value="7" class = "selected">7:00 A.M</option>
                      <option value="8">8:00 A.M</option>
                      <option value="9">9:00 A.M</option>
@@ -245,7 +250,7 @@
                   </div>
                    <div>
                      <label>Hora Fin</label>
-                    <select id = "horaFin" ng-model = "reservation.horaFin">
+                    <select id = "horaFin1" ng-model = "reservation.horaFin">
                      <option value="8" class = "selected">8:00 A.M</option>
                      <option value="9">9:00 A.M</option>
                      <option value="10">10:00 A.M</option>
@@ -260,7 +265,7 @@
                    </div>
                    <div>
                      <label>Reservacion</label>
-                     <select id = "lab" ng-model = "reservation.idLab">
+                     <select id = "lab1" ng-model = "reservation.idLab">
                        <option value = 1>Laboratorio 1</option>
                        <option value = 2>Laboratorio 2</option>
                      </select>

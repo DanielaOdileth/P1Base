@@ -10,7 +10,7 @@ angular.module('AngularScaffold.Services').factory('HomeService', ['$http',
 				return $http.get(baseUrl + "v1/reservations/"+idLab,idLab);
 			},
 			getReservationsByName : function(userName){
-				return $http.get(baseUrl + "v1/getReservations/"+userName,userName);
+				return $http.get(baseUrl + "v1/reservationsName/"+userName,userName);
 			},
 			deleteReservation : function(payload, id){
 				return $http.delete(baseUrl + "v1/removeReservation/"+id, payload);

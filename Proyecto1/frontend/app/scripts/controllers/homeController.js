@@ -4,7 +4,6 @@ angular.module('AngularScaffold.Controllers')
       $scope.reservation = {};
       $scope.reservations = [];
       $scope.$sessionStorage = $sessionStorage;
-      console.log($sessionStorage.currentUser);
       
       $scope.addReservation1 = function(){
          $scope.reservation.diaInicio = $("#fecha1").val();
@@ -20,6 +19,7 @@ angular.module('AngularScaffold.Controllers')
                               horaInicio : $scope.hourToString($scope.reservation.horaInicio),
                               horaFin : $scope.hourToString($scope.reservation.horaFin),
                               diaInicio : $scope.reservation.diaInicio, diaFin : $scope.reservation.diaFin};
+                              alert('estoy creando');
             if($scope.verifyReservations(reservation)){
               homeService.addReservation(reservation).then(function(response){
               alert('Registered in correctly!');
@@ -39,9 +39,9 @@ angular.module('AngularScaffold.Controllers')
 
 
       $scope.getReservations1 = function(idLab){
-        $scope.reservations = {};
         homeService.getReservation(idLab).then(function(response){
           $scope.reservations = response.data;
+          alert('lGet: ' + $scope.reservations.length);
         }).catch(function(err){
           alert(err.data.error + " " + err.data.message)
         });
@@ -80,6 +80,7 @@ angular.module('AngularScaffold.Controllers')
         for(var i = day1; i <=day2; i++){
           days.push(i);
         }
+        alert('days: ' + days);
         return days;
       }
 
@@ -104,22 +105,27 @@ angular.module('AngularScaffold.Controllers')
         for(var i = hora1;i<hora2;i++){
           hours.push(i);
         }
+        alert('hours: ' + hours);
         return hours;
       }
 
       $scope.verifyReservations = function(newReservation){
         alert(newReservation.idLab + " Holis");
         $scope.getReservations1(newReservation.idLab);
-        alert($scope.reservations.length);
+        alert('l : ' + $scope.reservations.length);
 
         for(var i = 0; i < $scope.reservations.length; i++){
-          if($scope.compareArrays($scope.getDaysRange($scope.reservations[i].diaInicio,
-            $scope.reservations[i].diaFin),$scope.getDaysRange(newReservation.diaInicio,
-            newReservation.diaFin))){
-            if($scope.compareArrays($scope.getHoursRange($scope.reservations[i].horaInicio,
-            $scope.reservations[i].horaFin),$scope.getHoursRange(newReservation.horaInicio,
-            newReservation.horaFin))){
-              return false;
+          if(newReservation != $scope.reservations[i]){
+            if($scope.compareArrays($scope.getDaysRange($scope.reservations[i].diaInicio,
+              $scope.reservations[i].diaFin),$scope.getDaysRange(newReservation.diaInicio,
+              newReservation.diaFin))){
+              alert('entre aqui');
+              if($scope.compareArrays($scope.getHoursRange($scope.reservations[i].horaInicio,
+              $scope.reservations[i].horaFin),$scope.getHoursRange(newReservation.horaInicio,
+              newReservation.horaFin))){
+                alert('tambien aqui');
+                return false;
+              }
             }
           }
         }
@@ -152,14 +158,30 @@ angular.module('AngularScaffold.Controllers')
 
       $scope.updateReservations = function(item){
         $scope.reservation = item;
-        if($sessionStorage.currentUser.username == $scope.reservation.name){
-          $scope.reservation.horaInicio = hourToString($scope.reservation.horaInicio);
-          $scope.reservation.horaFin = hourToString($scope.reservation.horaFin);
-          homeService.updateReservation($scope.reservation, item._id).then(function(response){
-            $scope.getReservations();
-          }).catch(function(err){
-            alert(err.data.error + " " + err.data.message);
-          });
+        if($sessionStorage.currentUser.username == item.name){
+            if(item.horaInicio.length <=2 && item.horaFin.length <=2){
+            item.diaInicio = $("#fechanueva1").val();
+            item.diaFin = $('#fechanueva2').val();
+              if((parseInt(item.horaInicio) >= parseInt(item.horaFin)) ||
+            ($scope.getDay(item.diaInicio) > $scope.getDay(item.diaFin))){
+                alert('Horarios ingresados erroneamente');
+              }else{
+                  alert('In here');
+                  item.horaInicio = $scope.hourToString(item.horaInicio);
+                  item.horaFin = $scope.hourToString(item.horaFin);
+                  if($scope.verifyReservations(item)){
+                    homeService.updateReservation(item, item._id).then(function(response){
+                    $scope.getReservations();
+                    }).catch(function(err){
+                    alert(err.data.error + " " + err.data.message);
+                    });
+                }else{
+                  alert('La modificacion entra en conflicto con otras reservaciones.');
+                } 
+              }
+            }
+        }else{
+          alert('El nombre de la reserva tiene que ser igual al del usuario');
         }
       }
 
@@ -169,6 +191,15 @@ angular.module('AngularScaffold.Controllers')
           $scope.getReservations();
         }).catch(function(err){
           alert(err.data.error + " " + err.data.message);
+        });
+      }
+
+      $scope.getReservationsByName = function(name){
+        alert(name);
+        homeService.getReservationsByName(name).then(function(response){
+          $scope.reservations = response.data;
+          }).catch(function(err){
+          alert(err.data.error + " " + err.data.message)
         });
       }
 

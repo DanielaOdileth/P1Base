@@ -44,8 +44,8 @@ handler: function(request, reply){
 //Manuel todo enojado
 exports.getReservationsByName = {
 	handler : function(request,reply){
-		console.log('u ' + request.params.name);
-		var reservations = reservation.find({name: request.params.name});
+		console.log('u ' + request.params.reservationName);
+		var reservations = reservation.find({name: request.params.reservationName});
 			reply (reservations);
 	}
 };
@@ -73,6 +73,8 @@ exports.updateReservation = {
 		var newOrganizacion = request.payload.organization;
 		var newProposito = request.payload.purpose;
 		var newIdLab = request.payload.idLab;
+		var newdiaInicio = request.payload.diaInicio;
+		var newdiaFin = request.payload.diaFin;
 		var newHoraInicio = request.payload.horaInicio;
 		var newHoraFin = request.payload.horaFin;
 		var newDias = request.payload.dias;
@@ -83,6 +85,8 @@ exports.updateReservation = {
 				organization: newOrganizacion,
 				purpose: newProposito,
 				idLab: newIdLab,
+				diaInicio : newdiaInicio,
+				diaFin : newdiaFin, 
 				horaInicio: newHoraInicio,
 				horaFin: newHoraFin,
 				dias: newDias
